@@ -11,12 +11,7 @@ const App = () => {
   // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
-  const CustomDiv = styled.div`
-    color: white;
-    width: 100%;
-    margin: 15px;
-    background-color: blue;
-  `
+  
 
   const [data, setData] = useState([]);
   console.log(data)
@@ -34,17 +29,20 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <div style={{display: "flex"}}>
+      <div className = "content">
 
         {data.map((list, index) => {
           return (
-          <CustomDiv> <PeopleCard 
+          <PeopleCard 
           name = {list.name}
           birth = {list.birth_year}
           gender = {list.gender}
-          /></CustomDiv>
+          height = {list.height}
+          mass = {list.mass}
+          />
           )
         })}
+
       </div>
     </div>
   );
